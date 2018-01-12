@@ -69,140 +69,70 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({19:[function(require,module,exports) {
+})({18:[function(require,module,exports) {
+var bundleURL = null;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-var Note = React.createClass({
-    getInitialState() {
-        return {editing: false}
-    },
-    componentWillMount() {
-        this.style = {
-            right: 80
-        }
-    },
-    componentDidUpdate() {
-        if (this.state.editing) {
-            this.refs.newText.focus()
-            this.refs.newText.select()
-        }
-    },
-    shouldComponentUpdate(nextProps, nextState) {
-        return this.props.children !== nextProps.children || this.state !== nextState
-    },
-    edit() {
-        this.setState({editing: true})
-    },
-    save() {
-        this.props.onChange(this.refs.newText.value, this.props.id)
-        this.setState({editing: false})
-    },
-    remove() {
-        this.props.onRemove(this.props.id)
-    },
-    renderForm() {
-        return (
-            <div className="note" 
-                 style={this.style}>
-              <textarea ref="newText"
-                        defaultValue={this.props.children}>
-              </textarea>
-              <button onClick={this.save}>SAVE</button>
-            </div>
-        )
-    },
-    renderDisplay() {
-        return ( 
-            <div className="note"
-                 style={this.style}>
-                <p>{this.props.children}</p>
-                <span>
-                  <button onClick={this.edit}>EDIT</button>
-                  <button onClick={this.remove}>X</button>
-                </span>
-            </div>
-            )
-    },
-    render() {
-      return ( <ReactDraggable>
-               {(this.state.editing) ? this.renderForm()
-                                  : this.renderDisplay()}
-               </ReactDraggable>
-        )
+  return bundleURL;
+}
 
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error;
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+    if (matches) {
+      return getBaseURL(matches[0]);
     }
-})
+  }
 
-var Board = React.createClass({
-    propTypes: {
-        count: function(props, propName) {
-            if(typeof props[propName] !== "number") {
-                return new Error("the count must be a number")
-            } 
+  return '/';
+}
 
-            if(props[propName] > 100) {
-                return new Error('Creating ' + props[propName] + ' notes is ridiculous')
-            }
-        }
-    },
-    getInitialState() {
-        return {
-            notes: []
-        }
-    },
-    componentWillMount() {
-        let  objData = window.noteData;
-        for (let i=0; i<objData.length; i++){
-            this.add(objData[i].content);
-        }
-    },
-    nextId() {
-        this.uniqueId = this.uniqueId || 0
-        return this.uniqueId++
-    },
-    add(text) {
-        var notes = [
-            ...this.state.notes,
-            {
-                id: this.nextId(),
-                note: text
-            }
-        ]
-        this.setState({notes})
-    },
-    update(newText, id) {
-        var notes = this.state.notes.map(
-            note => (note.id !== id) ?
-               note : 
-                {
-                    ...note, 
-                    note: newText
-                }
-            )
-        this.setState({notes})
-    },
-    remove(id) {
-        var notes = this.state.notes.filter(note => note.id !== id)
-        this.setState({notes})
-    },
-    eachNote(note) {
-        return (<Note key={note.id}
-                      id={note.id}
-                      onChange={this.update}
-                      onRemove={this.remove}>
-                  {note.note}
-                </Note>)
-    },
-    render() {
-        return (<div className='board'>
-                   {this.state.notes.map(this.eachNote)}
-                   <button onClick={() => this.add('New Note')}>+</button>
-                </div>)
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+
+},{}],17:[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+  newLink.onload = function () {
+    link.remove();
+  };
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
     }
-})
 
-ReactDOM.render(<Board count={50}/>, 
-    document.getElementById('react-container'))
-},{}],0:[function(require,module,exports) {
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+
+},{"./bundle-url":18}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -321,4 +251,4 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id)
   });
 }
-},{}]},{},[0,19])
+},{}]},{},[0])

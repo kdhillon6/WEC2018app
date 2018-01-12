@@ -86922,7 +86922,9 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":17}],4:[function(require,module,exports) {
+},{"_css_loader":17}],21:[function(require,module,exports) {
+
+},{}],4:[function(require,module,exports) {
 "use strict";
 
 var _p = require("p5");
@@ -86935,11 +86937,23 @@ var _sketch2 = _interopRequireDefault(_sketch);
 
 require("./styles/main.css");
 
+var _fs = require("fs");
+
+var _fs2 = _interopRequireDefault(_fs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Initialize sketch
 new _p2.default(_sketch2.default);
-},{"p5":7,"./js/sketch":5,"./styles/main.css":6}],0:[function(require,module,exports) {
+
+var jsonData = "[\r\n    {\r\n        \"id\": 1,\r\n        \"content\": \"sdlkfjsljfds\",\r\n        \"date\" : \"\"\r\n    }\r\n]";
+console.log(jsonData);
+
+var objData = JSON.parse(jsonData);
+console.log(objData);
+
+window.noteData = objData;
+},{"p5":7,"./js/sketch":5,"./styles/main.css":6,"fs":21}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {

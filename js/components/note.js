@@ -1,11 +1,11 @@
+
 var Note = React.createClass({
     getInitialState() {
         return {editing: false}
     },
     componentWillMount() {
         this.style = {
-            right: this.randomBetween( window.innerWidth - 40, window.innerWidth - 40, 'px'),
-            top: this.randomBetween(0, window.innerHeight -150, 'px')
+            right: 80
         }
     },
     componentDidUpdate() {
@@ -16,9 +16,6 @@ var Note = React.createClass({
     },
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.children !== nextProps.children || this.state !== nextState
-    },
-    randomBetween(x, y, s) {
-        return (x + Math.ceil(Math.random() * (y-x))) + s
     },
     edit() {
         this.setState({editing: true})
@@ -81,17 +78,9 @@ var Board = React.createClass({
         }
     },
     componentWillMount() {
-        if (this.props.count) {
-            var url = `http://baconipsum.com/api/?type=all-meat&sentences=${this.props.count}`
-            fetch(url)
-                  .then(results => results.json())
-                  .then(array => array[0])
-                  .then(text => text.split('. '))
-                  .then(array => array.forEach(
-                        sentence => this.add(sentence)))
-                  .catch(function(err) {
-                    console.log("Didn't connect to the API", err)
-                  })
+        let  objData = window.noteData;
+        for (let i=0; i<objData.length; i++){
+            this.add(objData[i].content);
         }
     },
     nextId() {
