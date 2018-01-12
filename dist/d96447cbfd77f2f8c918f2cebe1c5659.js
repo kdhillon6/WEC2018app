@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({8:[function(require,module,exports) {
+})({4:[function(require,module,exports) {
 
 var Note = React.createClass({
     getInitialState() {
@@ -220,7 +220,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':58020/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':63914/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
@@ -321,4 +321,4 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id)
   });
 }
-},{}]},{},[0,8])
+},{}]},{},[0,4])

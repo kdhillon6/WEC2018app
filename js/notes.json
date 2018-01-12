@@ -3,21 +3,24 @@
         "id": 1,
         "content": "sdlkfjsljfds",
         "date" : "",
-        "hour":"6",
-        "minute":"0"
+        "hour":"14",
+        "minute":"58",
+        "status":"done"
     },
     {
         "id": 2,
         "content": "content2",
         "date" : "",
         "hour":"6",
-        "minute":"30"
+        "minute":"30",
+        "status":"done"
     },
     {
         "id": 3,
         "content": "content3",
         "date" : "",
         "hour":"6",
-        "minute":"0"
+        "minute":"0",
+        "status":"not done"
     }
 ]

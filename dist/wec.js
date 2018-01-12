@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({20:[function(require,module,exports) {
+})({19:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -185,7 +185,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],21:[function(require,module,exports) {
+},{}],18:[function(require,module,exports) {
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -271,14 +271,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],22:[function(require,module,exports) {
+},{}],17:[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],16:[function(require,module,exports) {
+},{}],15:[function(require,module,exports) {
 
 var global = (1,eval)("this");
 /*!
@@ -2071,7 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":20,"ieee754":21,"isarray":22,"buffer":16}],17:[function(require,module,exports) {
+},{"base64-js":19,"ieee754":18,"isarray":17,"buffer":15}],16:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -73668,7 +73668,7 @@ module.exports = p5;
 
 },{"../core/core":55,"./p5.Geometry":102}]},{},[46])(46)
 });
-},{"buffer":16,"process":17}],23:[function(require,module,exports) {
+},{"buffer":15,"process":16}],21:[function(require,module,exports) {
 /*! p5.sound.js v0.3.5 2017-07-28 */
 /**
  *  p5.sound extends p5 with <a href="http://caniuse.com/audio-api"
@@ -84190,7 +84190,7 @@ src_app = function () {
 }(sndcore, master, helpers, errorHandler, panner, soundfile, amplitude, fft, signal, oscillator, env, pulse, noise, audioin, filter, delay, reverb, metro, looper, compressor, soundRecorder, peakdetect, gain, distortion);
 }));
 
-},{"../p5":14}],24:[function(require,module,exports) {
+},{"../p5":14}],20:[function(require,module,exports) {
 /*! p5.dom.js v0.3.4 Aug 11, 2017 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
@@ -86728,9 +86728,9 @@ src_app = function () {
 
 }));
 
-},{"../p5":14}],18:[function(require,module,exports) {
+},{"../p5":14}],11:[function(require,module,exports) {
 module.exports="/dist/b8b688418fb845e6c7c6b49d85439a09.png";
-},{}],19:[function(require,module,exports) {
+},{}],12:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86793,7 +86793,7 @@ class clock {
 
 }
 exports.default = clock;
-},{}],26:[function(require,module,exports) {
+},{}],13:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86813,14 +86813,17 @@ class notesOnClock {
       p5.push();
       p5.translate(250, 350); // change point of origin
       //update x,y locations
+      if (i != 0 && window.noteData[i].hour != window.noteData[i - 1].hour) {
+        //notes inside different hour range doesnt depend on each others pos
+        this.resetGap();
+      }
       this.gapX = this.gapX + 40 * p5.cos(this.deadLineAngleHour - 90);
       this.gapY = this.gapY + 40 * p5.sin(this.deadLineAngleHour - 90);
       //draw circle
       p5.rotate(this.deadLineAngleMinute);
-      console.log(this.deadLineAngleMinute); //sacale to 360 and compare with mins
-      console.log(window.seconds);
       p5.fill("yellow");
       p5.ellipse(this.gapX, this.gapY, 20);
+      this.isDeadlineReached(i);
       p5.pop();
     }
     this.resetGap();
@@ -86829,9 +86832,29 @@ class notesOnClock {
     this.gapX = 0;
     this.gapY = 0;
   }
+  isDeadlineReached(i) {
+    console.log(window.hours);
+    if (window.hours == window.noteData[i].hour) {
+      //in same hour as current hour
+      if (window.noteData[i].minute == window.minutes) //deadline reached
+        {
+          if (window.noteData[i].status == "done") {
+            //completed task!!
+            p5.fill("green");
+            p5.ellipse(this.gapX, this.gapY, 20);
+          } else {
+            //task not completed :(
+            p5.fill("red");
+            this.triggerALarm();
+            p5.ellipse(this.gapX, this.gapY, 20);
+          }
+        }
+    }
+  }
+  triggerALarm() {}
 }
 exports.default = notesOnClock;
-},{}],12:[function(require,module,exports) {
+},{}],9:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86900,7 +86923,7 @@ const sketch = p5 => {
 };
 
 exports.default = sketch;
-},{"p5":14,"p5/lib/addons/p5.sound":23,"p5/lib/addons/p5.dom":24,"../assets/clock.png":18,"./p5Components/clock":19,"./p5Components/notesOnClock":26}],15:[function(require,module,exports) {
+},{"p5":14,"p5/lib/addons/p5.sound":21,"p5/lib/addons/p5.dom":20,"../assets/clock.png":11,"./p5Components/clock":12,"./p5Components/notesOnClock":13}],10:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -86931,7 +86954,7 @@ function getBaseURL(url) {
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 
-},{}],13:[function(require,module,exports) {
+},{}],6:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -86963,15 +86986,15 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":15}],10:[function(require,module,exports) {
+},{"./bundle-url":10}],7:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":13}],9:[function(require,module,exports) {
+},{"_css_loader":6}],5:[function(require,module,exports) {
 
-},{}],6:[function(require,module,exports) {
+},{}],2:[function(require,module,exports) {
 "use strict";
 
 var _p = require("p5");
@@ -86993,14 +87016,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Initialize sketch
 new _p2.default(_sketch2.default);
 
-var jsonData = "[\r\n    {\r\n        \"id\": 1,\r\n        \"content\": \"sdlkfjsljfds\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"0\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"content\": \"content2\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"30\"\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"content\": \"content3\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"0\"\r\n    }\r\n]";
+var jsonData = "[\r\n    {\r\n        \"id\": 1,\r\n        \"content\": \"sdlkfjsljfds\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"14\",\r\n        \"minute\":\"58\",\r\n        \"status\":\"done\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"content\": \"content2\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"30\",\r\n        \"status\":\"done\"\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"content\": \"content3\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"0\",\r\n        \"status\":\"not done\"\r\n    }\r\n]";
 //console.log(jsonData);
 
 var objData = JSON.parse(jsonData);
 //console.log(objData);	
 
 window.noteData = objData;
-},{"p5":14,"./js/sketch":12,"./styles/main.css":10,"fs":9}],0:[function(require,module,exports) {
+},{"p5":14,"./js/sketch":9,"./styles/main.css":7,"fs":5}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -87018,7 +87041,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':58020/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':63914/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
@@ -87119,4 +87142,4 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id)
   });
 }
-},{}]},{},[0,6])
+},{}]},{},[0,2])
