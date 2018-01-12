@@ -2,3 +2,8 @@
     margin: 0 auto;
     width: 100%;
 }
+
+.board{
+    overflow-y: scroll;
+    height: 800px;
+}

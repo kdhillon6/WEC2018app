@@ -16,8 +16,7 @@ export default class notesOnClock{
             this.gapY= this.gapY+40*p5.sin(this.deadLineAngleHour-90);
             //draw circle
             p5.rotate(this.deadLineAngleMinute);
-            console.log(this.deadLineAngleMinute);//sacale to 360 and compare with mins
-            console.log(window.seconds);
+            
             p5.fill("yellow");
             p5.ellipse(this.gapX,this.gapY,20);
             p5.pop();
