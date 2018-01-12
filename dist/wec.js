@@ -69,11 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-<<<<<<< HEAD
-})({10:[function(require,module,exports) {
-=======
-})({32:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+})({14:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -189,11 +185,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-<<<<<<< HEAD
-},{}],11:[function(require,module,exports) {
-=======
-},{}],33:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{}],16:[function(require,module,exports) {
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -279,22 +271,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-<<<<<<< HEAD
-},{}],12:[function(require,module,exports) {
-=======
-},{}],34:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{}],15:[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-<<<<<<< HEAD
 },{}],8:[function(require,module,exports) {
-=======
-},{}],27:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
 
 var global = (1,eval)("this");
 /*!
@@ -2087,11 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-<<<<<<< HEAD
-},{"base64-js":10,"ieee754":11,"isarray":12,"buffer":8}],9:[function(require,module,exports) {
-=======
-},{"base64-js":32,"ieee754":33,"isarray":34,"buffer":27}],28:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{"base64-js":14,"ieee754":16,"isarray":15,"buffer":8}],9:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -2278,11 +2258,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-<<<<<<< HEAD
-},{}],6:[function(require,module,exports) {
-=======
-},{}],20:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{}],7:[function(require,module,exports) {
 var global = (1,eval)("this");
 var Buffer = require("buffer").Buffer;
 var process = require("process");
@@ -73692,11 +73668,7 @@ module.exports = p5;
 
 },{"../core/core":55,"./p5.Geometry":102}]},{},[46])(46)
 });
-<<<<<<< HEAD
-},{"buffer":8,"process":9}],14:[function(require,module,exports) {
-=======
-},{"buffer":27,"process":28}],29:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{"buffer":8,"process":9}],12:[function(require,module,exports) {
 /*! p5.sound.js v0.3.5 2017-07-28 */
 /**
  *  p5.sound extends p5 with <a href="http://caniuse.com/audio-api"
@@ -84218,11 +84190,7 @@ src_app = function () {
 }(sndcore, master, helpers, errorHandler, panner, soundfile, amplitude, fft, signal, oscillator, env, pulse, noise, audioin, filter, delay, reverb, metro, looper, compressor, soundRecorder, peakdetect, gain, distortion);
 }));
 
-<<<<<<< HEAD
-},{"../p5":6}],13:[function(require,module,exports) {
-=======
-},{"../p5":20}],30:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{"../p5":7}],13:[function(require,module,exports) {
 /*! p5.dom.js v0.3.4 Aug 11, 2017 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
@@ -86760,10 +86728,9 @@ src_app = function () {
 
 }));
 
-<<<<<<< HEAD
-},{"../p5":6}],18:[function(require,module,exports) {
-module.exports="/dist/b8b688418fb845e6c7c6b49d85439a09.png";
-},{}],17:[function(require,module,exports) {
+},{"../p5":7}],10:[function(require,module,exports) {
+module.exports="/dist/a36069ecc9a70109e8ae152234a682d4.png";
+},{}],11:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86825,10 +86792,7 @@ class clock {
 
 }
 exports.default = clock;
-},{}],4:[function(require,module,exports) {
-=======
-},{"../p5":20}],21:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{}],5:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86889,11 +86853,7 @@ const sketch = p5 => {
 };
 
 exports.default = sketch;
-<<<<<<< HEAD
-},{"p5":6,"p5/lib/addons/p5.sound":14,"p5/lib/addons/p5.dom":13,"../assets/clock.png":18,"./p5Components/clock":17}],7:[function(require,module,exports) {
-=======
-},{"p5":20,"p5/lib/addons/p5.sound":29,"p5/lib/addons/p5.dom":30}],31:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{"p5":7,"p5/lib/addons/p5.sound":12,"p5/lib/addons/p5.dom":13,"../assets/clock.png":10,"./p5Components/clock":11}],18:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -86924,11 +86884,7 @@ function getBaseURL(url) {
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 
-<<<<<<< HEAD
-},{}],5:[function(require,module,exports) {
-=======
-},{}],25:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{}],17:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -86960,21 +86916,13 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-<<<<<<< HEAD
-},{"./bundle-url":7}],3:[function(require,module,exports) {
-=======
-},{"./bundle-url":31}],22:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{"./bundle-url":18}],6:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-<<<<<<< HEAD
-},{"_css_loader":5}],2:[function(require,module,exports) {
-=======
-},{"_css_loader":25}],4:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{"_css_loader":17}],4:[function(require,module,exports) {
 "use strict";
 
 var _p = require("p5");
@@ -86991,11 +86939,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Initialize sketch
 new _p2.default(_sketch2.default);
-<<<<<<< HEAD
-},{"p5":6,"./js/sketch":4,"./styles/main.css":3}],0:[function(require,module,exports) {
-=======
-},{"p5":20,"./js/sketch":21,"./styles/main.css":22}],0:[function(require,module,exports) {
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+},{"p5":7,"./js/sketch":5,"./styles/main.css":6}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -87013,11 +86957,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-<<<<<<< HEAD
-  var ws = new WebSocket('ws://' + window.location.hostname + ':50753/');
-=======
-  var ws = new WebSocket('ws://' + window.location.hostname + ':50182/');
->>>>>>> 82d85849220abbac931e5c048b6721108b19d139
+  var ws = new WebSocket('ws://' + window.location.hostname + ':58181/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
@@ -87118,4 +87058,4 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id)
   });
 }
-},{}]},{},[0,2])
+},{}]},{},[0,4])

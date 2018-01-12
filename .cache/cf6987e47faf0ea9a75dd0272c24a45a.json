@@ -1,1 +1,0 @@
-{"dependencies":[{"name":"_css_loader"}],"generated":{"css":".container-full {\r\n    margin: 0 auto;\r\n    width: 100%;\r\n}","js":"\n        var reloadCSS = require('_css_loader');\n        module.hot.dispose(reloadCSS);\n        module.hot.accept(reloadCSS);\n      "},"hash":"1f145c73fe2aa53fa0425bc52cd696ee"}
