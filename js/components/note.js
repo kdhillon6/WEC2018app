@@ -51,7 +51,7 @@ var Note = React.createClass({
             )
     },
     render() {
-      return ( <ReactDraggable>
+      return ( <ReactDraggable bounds='.board' >
                {(this.state.editing) ? this.renderForm()
                                   : this.renderDisplay()}
                </ReactDraggable>

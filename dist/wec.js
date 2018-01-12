@@ -69,7 +69,11 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
+<<<<<<< HEAD
 })({19:[function(require,module,exports) {
+=======
+})({24:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 'use strict'
 
 exports.byteLength = byteLength
@@ -185,7 +189,11 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
+<<<<<<< HEAD
 },{}],18:[function(require,module,exports) {
+=======
+},{}],25:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -271,14 +279,22 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
+<<<<<<< HEAD
 },{}],17:[function(require,module,exports) {
+=======
+},{}],23:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
+<<<<<<< HEAD
 },{}],15:[function(require,module,exports) {
+=======
+},{}],21:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 
 var global = (1,eval)("this");
 /*!
@@ -2071,7 +2087,11 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
+<<<<<<< HEAD
 },{"base64-js":19,"ieee754":18,"isarray":17,"buffer":15}],16:[function(require,module,exports) {
+=======
+},{"base64-js":24,"ieee754":25,"isarray":23,"buffer":21}],22:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -2258,7 +2278,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],14:[function(require,module,exports) {
+},{}],13:[function(require,module,exports) {
 var global = (1,eval)("this");
 var Buffer = require("buffer").Buffer;
 var process = require("process");
@@ -73668,7 +73688,11 @@ module.exports = p5;
 
 },{"../core/core":55,"./p5.Geometry":102}]},{},[46])(46)
 });
+<<<<<<< HEAD
 },{"buffer":15,"process":16}],21:[function(require,module,exports) {
+=======
+},{"buffer":21,"process":22}],19:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 /*! p5.sound.js v0.3.5 2017-07-28 */
 /**
  *  p5.sound extends p5 with <a href="http://caniuse.com/audio-api"
@@ -84190,7 +84214,11 @@ src_app = function () {
 }(sndcore, master, helpers, errorHandler, panner, soundfile, amplitude, fft, signal, oscillator, env, pulse, noise, audioin, filter, delay, reverb, metro, looper, compressor, soundRecorder, peakdetect, gain, distortion);
 }));
 
+<<<<<<< HEAD
 },{"../p5":14}],20:[function(require,module,exports) {
+=======
+},{"../p5":13}],20:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 /*! p5.dom.js v0.3.4 Aug 11, 2017 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
@@ -86728,9 +86756,15 @@ src_app = function () {
 
 }));
 
+<<<<<<< HEAD
 },{"../p5":14}],11:[function(require,module,exports) {
 module.exports="/dist/b8b688418fb845e6c7c6b49d85439a09.png";
 },{}],12:[function(require,module,exports) {
+=======
+},{"../p5":13}],15:[function(require,module,exports) {
+module.exports="/dist/97fc8c2742031b6c19e73aa32ede8ec9.png";
+},{}],16:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86793,7 +86827,11 @@ class clock {
 
 }
 exports.default = clock;
+<<<<<<< HEAD
 },{}],13:[function(require,module,exports) {
+=======
+},{}],17:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86821,6 +86859,10 @@ class notesOnClock {
       this.gapY = this.gapY + 40 * p5.sin(this.deadLineAngleHour - 90);
       //draw circle
       p5.rotate(this.deadLineAngleMinute);
+<<<<<<< HEAD
+=======
+
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
       p5.fill("yellow");
       p5.ellipse(this.gapX, this.gapY, 20);
       this.isDeadlineReached(i);
@@ -86923,7 +86965,11 @@ const sketch = p5 => {
 };
 
 exports.default = sketch;
+<<<<<<< HEAD
 },{"p5":14,"p5/lib/addons/p5.sound":21,"p5/lib/addons/p5.dom":20,"../assets/clock.png":11,"./p5Components/clock":12,"./p5Components/notesOnClock":13}],10:[function(require,module,exports) {
+=======
+},{"p5":13,"p5/lib/addons/p5.sound":19,"p5/lib/addons/p5.dom":20,"../assets/clock.png":15,"./p5Components/clock":16,"./p5Components/notesOnClock":17}],18:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -86954,7 +87000,11 @@ function getBaseURL(url) {
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 
+<<<<<<< HEAD
 },{}],6:[function(require,module,exports) {
+=======
+},{}],14:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -86986,13 +87036,21 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
+<<<<<<< HEAD
 },{"./bundle-url":10}],7:[function(require,module,exports) {
+=======
+},{"./bundle-url":18}],10:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
+<<<<<<< HEAD
 },{"_css_loader":6}],5:[function(require,module,exports) {
+=======
+},{"_css_loader":14}],9:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 
 },{}],2:[function(require,module,exports) {
 "use strict";
@@ -87023,7 +87081,11 @@ var objData = JSON.parse(jsonData);
 //console.log(objData);	
 
 window.noteData = objData;
+<<<<<<< HEAD
 },{"p5":14,"./js/sketch":9,"./styles/main.css":7,"fs":5}],0:[function(require,module,exports) {
+=======
+},{"p5":13,"./js/sketch":12,"./styles/main.css":10,"fs":9}],0:[function(require,module,exports) {
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -87041,7 +87103,11 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
+<<<<<<< HEAD
   var ws = new WebSocket('ws://' + window.location.hostname + ':63914/');
+=======
+  var ws = new WebSocket('ws://' + window.location.hostname + ':49943/');
+>>>>>>> aeee251c7f4fa852dd5ebee50f4651cfa6a98f99
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 

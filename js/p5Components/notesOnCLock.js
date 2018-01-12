@@ -20,6 +20,7 @@ export default class notesOnClock{
             this.gapY= this.gapY+40*p5.sin(this.deadLineAngleHour-90);
             //draw circle
             p5.rotate(this.deadLineAngleMinute);
+            
             p5.fill("yellow");
             p5.ellipse(this.gapX,this.gapY,20);
             this.isDeadlineReached(i);
