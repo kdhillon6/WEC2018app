@@ -6,17 +6,19 @@ import 'p5/lib/addons/p5.dom';
 const sketch = (p5) => {
 
   // Variables scoped within p5
-  const canvasWidth = 400;
-  const canvasHeight = 100;
+  const canvasWidth = 500;
+  const canvasHeight = 800;
 
   // make library globally available
   window.p5 = p5;
-
+  var seconds;
+  var minutes;
+  var hours;
   // Setup function
   p5.setup = () => {
     let canvas = p5.createCanvas(canvasWidth, canvasHeight);
     canvas.parent('canvas');
-
+    seconds= p5.second();
     // Your stuff goes in here
   }
 
