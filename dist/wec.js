@@ -86749,7 +86749,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const sketch = p5 => {
 
   // Variables scoped within p5
-  const canvasWidth = 100;
+  const canvasWidth = 400;
   const canvasHeight = 100;
 
   // make library globally available
