@@ -1,7 +1,6 @@
 export default class clock{
     constructor(id){
-        this.id=id;
-        
+        this.id=id;// id of clock, in case if more clocks needed
     }
     draw(){
         this.updateSeconds();
