@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({12:[function(require,module,exports) {
+})({10:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -185,7 +185,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],13:[function(require,module,exports) {
+},{}],11:[function(require,module,exports) {
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -271,14 +271,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],14:[function(require,module,exports) {
+},{}],12:[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],10:[function(require,module,exports) {
+},{}],8:[function(require,module,exports) {
 
 var global = (1,eval)("this");
 /*!
@@ -2071,7 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":12,"ieee754":13,"isarray":14,"buffer":10}],11:[function(require,module,exports) {
+},{"base64-js":10,"ieee754":11,"isarray":12,"buffer":8}],9:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -2258,7 +2258,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],8:[function(require,module,exports) {
+},{}],6:[function(require,module,exports) {
 var global = (1,eval)("this");
 var Buffer = require("buffer").Buffer;
 var process = require("process");
@@ -73668,7 +73668,7 @@ module.exports = p5;
 
 },{"../core/core":55,"./p5.Geometry":102}]},{},[46])(46)
 });
-},{"buffer":10,"process":11}],15:[function(require,module,exports) {
+},{"buffer":8,"process":9}],14:[function(require,module,exports) {
 /*! p5.sound.js v0.3.5 2017-07-28 */
 /**
  *  p5.sound extends p5 with <a href="http://caniuse.com/audio-api"
@@ -84190,7 +84190,7 @@ src_app = function () {
 }(sndcore, master, helpers, errorHandler, panner, soundfile, amplitude, fft, signal, oscillator, env, pulse, noise, audioin, filter, delay, reverb, metro, looper, compressor, soundRecorder, peakdetect, gain, distortion);
 }));
 
-},{"../p5":8}],16:[function(require,module,exports) {
+},{"../p5":6}],13:[function(require,module,exports) {
 /*! p5.dom.js v0.3.4 Aug 11, 2017 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
@@ -86728,7 +86728,71 @@ src_app = function () {
 
 }));
 
-},{"../p5":8}],6:[function(require,module,exports) {
+},{"../p5":6}],18:[function(require,module,exports) {
+module.exports="/dist/b8b688418fb845e6c7c6b49d85439a09.png";
+},{}],17:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+class clock {
+  constructor(id) {
+    this.id = id;
+  }
+  draw() {
+    this.updateSeconds();
+    this.updateMinutes();
+    this.updateHours();
+    this.rotateHours();
+    this.rotateMinutes();
+    this.rotateSeconds();
+  }
+  updateSeconds() {
+    window.seconds = p5.second();
+  }
+  updateMinutes() {
+    window.minutes = p5.minute();
+  }
+  updateHours() {
+    window.hours = p5.hour();
+  }
+  rotateSeconds() {
+    this.secondsAngle = p5.map(seconds, 0, 60, 0, 360); //scale seconds to degrees
+    //draw and rotate line-seconds
+    p5.push();
+    p5.translate(250, 350); // change point of origin
+    p5.rotate(this.secondsAngle);
+    p5.strokeWeight(2);
+    p5.stroke("red");
+    p5.line(0, 0, 0, 100);
+    p5.pop();
+  }
+  rotateMinutes() {
+    this.minutesAngle = p5.map(minutes, 0, 59, 0, 360); //scale minutes to degrees
+    //draw and rotate line-minutes
+    p5.push();
+    p5.translate(250, 350); // change point of origin
+    p5.rotate(this.minutesAngle);
+    p5.strokeWeight(4);
+    p5.stroke("blue");
+    p5.line(0, 0, 0, 120);
+    p5.pop();
+  }
+  rotateHours() {
+    this.hoursAngle = p5.map(hours, 0, 12, 0, 360); //scale hours to degrees
+    //draw and rotate line-hours
+    p5.push();
+    p5.translate(250, 350); // change point of origin
+    p5.rotate(this.hoursAngle);
+    p5.strokeWeight(6);
+    p5.line(0, 0, 0, -150);
+    p5.pop();
+  }
+
+}
+exports.default = clock;
+},{}],4:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86743,6 +86807,14 @@ require("p5/lib/addons/p5.sound");
 
 require("p5/lib/addons/p5.dom");
 
+var _clock = require("../assets/clock.png");
+
+var _clock2 = _interopRequireDefault(_clock);
+
+var _clock3 = require("./p5Components/clock");
+
+var _clock4 = _interopRequireDefault(_clock3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Sketch scope
@@ -86754,26 +86826,34 @@ const sketch = p5 => {
 
   // make library globally available
   window.p5 = p5;
-  var seconds;
-  var minutes;
-  var hours;
+  window.seconds;
+  window.minutes;
+  window.hours;
+
+  //clock object
+  var analogClock;
+
+  var clockImg;
   // Setup function
   p5.setup = () => {
     let canvas = p5.createCanvas(canvasWidth, canvasHeight);
     canvas.parent('canvas');
-    seconds = p5.second();
-    // Your stuff goes in here
+    p5.angleMode(p5.DEGREES);
+
+    clockImg = p5.loadImage(_clock2.default);
+    analogClock = new _clock4.default(1);
   };
 
   // Draw function
   p5.draw = () => {
-    p5.background("yellow");
-    p5.ellipse(50, 50, 80, 80);
+    p5.background("white");
+    p5.image(clockImg, 0, 100, canvasWidth, canvasWidth);
+    analogClock.draw();
   };
 };
 
 exports.default = sketch;
-},{"p5":8,"p5/lib/addons/p5.sound":15,"p5/lib/addons/p5.dom":16}],9:[function(require,module,exports) {
+},{"p5":6,"p5/lib/addons/p5.sound":14,"p5/lib/addons/p5.dom":13,"../assets/clock.png":18,"./p5Components/clock":17}],7:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -86804,7 +86884,7 @@ function getBaseURL(url) {
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 
-},{}],7:[function(require,module,exports) {
+},{}],5:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -86836,13 +86916,13 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":9}],5:[function(require,module,exports) {
+},{"./bundle-url":7}],3:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":7}],4:[function(require,module,exports) {
+},{"_css_loader":5}],2:[function(require,module,exports) {
 "use strict";
 
 var _p = require("p5");
@@ -86859,7 +86939,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Initialize sketch
 new _p2.default(_sketch2.default);
-},{"p5":8,"./js/sketch":6,"./styles/main.css":5}],0:[function(require,module,exports) {
+},{"p5":6,"./js/sketch":4,"./styles/main.css":3}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -86877,7 +86957,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':50273/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':50753/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
@@ -86978,4 +87058,4 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id)
   });
 }
-},{}]},{},[0,4])
+},{}]},{},[0,2])
