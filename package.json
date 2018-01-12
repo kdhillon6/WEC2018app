@@ -1,0 +1,29 @@
+{
+  "name": "wec",
+  "version": "1.0.0",
+  "description": "Note, task, todo list, timer app",
+  "main": "App.js",
+  "scripts": {
+    "server": "parcel index.html",
+    "build": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yvadher/WEC2018App.git"
+  },
+  "author": "Yagnik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yvadher/WEC2018App/issues"
+  },
+  "homepage": "https://github.com/yvadher/WEC2018App#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.3",
+    "jquery": "^3.2.1",
+    "p5": "^0.5.16"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.4.1"
+  }
+}
