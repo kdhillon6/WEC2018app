@@ -2,6 +2,22 @@
     {
         "id": 1,
         "content": "sdlkfjsljfds",
-        "date" : ""
+        "date" : "",
+        "hour":"6",
+        "minute":"0"
+    },
+    {
+        "id": 2,
+        "content": "content2",
+        "date" : "",
+        "hour":"6",
+        "minute":"30"
+    },
+    {
+        "id": 3,
+        "content": "content3",
+        "date" : "",
+        "hour":"6",
+        "minute":"0"
     }
 ]

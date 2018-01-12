@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nclass notesOnClock {\n  constructor() {}\n  draw() {\n    for (let i = 0; i < window.noteData.length; i++) {\n      console.log(window.noteData[i].date);\n    }\n  }\n}\nexports.default = notesOnClock;"},"hash":"c2e7370c318fe6dc7aca555e0a49392c"}

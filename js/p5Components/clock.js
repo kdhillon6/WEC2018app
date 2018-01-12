@@ -37,19 +37,19 @@ export default class clock{
         //draw and rotate line-minutes
         p5.push();
         p5.translate(250, 350);// change point of origin
-        p5.rotate(this.minutesAngle);
-        console.log(this.minutesAngle);
+        p5.rotate(this.minutesAngle+180);
         p5.strokeWeight(4);
         p5.stroke("blue");
         p5.line(0,0,0,120);
         p5.pop();
     }
     rotateHours(){
-        this.hoursAngle=p5.map(hours+minutes,0,1259,0,360);//scale hours to degrees
+        this.hoursAngle=p5.map(hours,0,12,0,360);//scale hours to degrees
+        this.minutesAngle=p5.map(minutes,0,59,0,30);
         //draw and rotate line-hours
         p5.push();
         p5.translate(250, 350);// change point of origin
-        p5.rotate(this.hoursAngle);
+        p5.rotate(this.hoursAngle+this.minutesAngle);
         p5.strokeWeight(6);
         p5.line(0,0,0,-150);
         p5.pop();
