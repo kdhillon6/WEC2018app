@@ -19,28 +19,27 @@ const sketch = (p5) => {
   window.seconds;
   window.minutes;
   window.hours;
-
-
+  window.clockImg;
+  window.randomX=0;
+  window.randomY=100;
   //clock object
   var analogClock;
   //notes on Clock object
   var notesIndicator;
-  var clockImg;
   // Setup function
   p5.setup = () => {
     let canvas = p5.createCanvas(canvasWidth, canvasHeight);
     canvas.parent('canvas');
     p5.angleMode(p5.DEGREES);
-    clockImg=p5.loadImage(Img);
+    window.clockImg=p5.loadImage(Img);
     analogClock = new clock(1);
     notesIndicator= new notesOnClock();
-    
   }
 
   // Draw function
   p5.draw = () => {
     p5.background("white");
-    p5.image(clockImg,0,100,canvasWidth,canvasWidth);
+    p5.image(clockImg,window.randomX,window.randomY,canvasWidth,canvasWidth);
     notesIndicator.draw();
     analogClock.draw();
     

@@ -20,7 +20,6 @@ export default class notesOnClock{
             this.gapY= this.gapY+40*p5.sin(this.deadLineAngleHour-90);
             //draw circle
             p5.rotate(this.deadLineAngleMinute);
-            
             p5.fill("yellow");
             p5.ellipse(this.gapX,this.gapY,20);
             this.isDeadlineReached(i);
@@ -33,14 +32,13 @@ export default class notesOnClock{
         this.gapY=0;
     }
     isDeadlineReached(i){
-        console.log(window.hours);
         if(window.hours==window.noteData[i].hour){//in same hour as current hour
             if(window.noteData[i].minute==window.minutes) //deadline reached
             {
                 if (window.noteData[i].status=="done"){//completed task!!
                     p5.fill("green");
                     p5.ellipse(this.gapX,this.gapY,20);
-                }else{//task not completed :(
+                }else{//task not completed :( //add priority
                     p5.fill("red");
                     this.triggerALarm();
                     p5.ellipse(this.gapX,this.gapY,20);
@@ -49,6 +47,7 @@ export default class notesOnClock{
         }
     }
     triggerALarm(){
-
+        randomX=10;
+        randomY=110;
     }
 }
