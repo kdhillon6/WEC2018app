@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({8:[function(require,module,exports) {
+})({5:[function(require,module,exports) {
 
 var Note = React.createClass({
     getInitialState() {
@@ -97,7 +97,7 @@ var Note = React.createClass({
         this.setState({editing: true})
     },
     save() {
-        this.props.onChange(this.refs.newText.value, this.props.id)
+        this.props.onChange(this.refs.newText.value, this.props.id, this.ref.newTime.value)
         this.setState({editing: false})
     },
     remove() {
@@ -110,6 +110,10 @@ var Note = React.createClass({
               <textarea ref="newText"
                         defaultValue={this.props.children}>
               </textarea>
+              <textarea ref="newTime" style={styleTime}
+                        defaultValue={this.props.children}>
+              </textarea>
+            
               <button onClick={this.save}>SAVE</button>
             </div>
         )
@@ -119,6 +123,7 @@ var Note = React.createClass({
             <div className="note"
                  style={this.style}>
                 <p>{this.props.children}</p>
+                <h4> {this.props.children} </h4>
                 <span>
                   <button onClick={this.edit}>EDIT</button>
                   <button onClick={this.remove}>X</button>
@@ -177,6 +182,7 @@ var Board = React.createClass({
             }
         ]
         this.setState({notes})
+        window.noteData.pish({id: this.nextId(), note: text , status})
     },
     update(newText, id) {
         var notes = this.state.notes.map(
@@ -211,6 +217,10 @@ var Board = React.createClass({
 
 ReactDOM.render(<Board count={50}/>, 
     document.getElementById('react-container'))
+
+    var styleTime = {
+        padding: "50px",
+    }
 },{}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -229,7 +239,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':49943/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':57693/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
@@ -330,4 +340,4 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id)
   });
 }
-},{}]},{},[0,8])
+},{}]},{},[0,5])
