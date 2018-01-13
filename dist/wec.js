@@ -86968,7 +86968,43 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":14}],9:[function(require,module,exports) {
+},{"_css_loader":14}],26:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+class motivation {
+  constructor() {
+    this.randomQuote();
+  }
+  randomQuote() {
+
+    //Render on loading
+    $.ajax({
+      url: "https://api.forismatic.com/api/1.0/?",
+      dataType: "jsonp",
+      data: "method=getQuote&format=jsonp&lang=en&jsonp=?",
+      success: function (response) {
+        $("#random_quote").html("<p id='random_quote' class='lead text-center'>" + response.quoteText + "<br/>&dash; " + response.quoteAuthor + " &dash;</p>");
+      }
+    });
+    //Change every specific time
+    setInterval(function () {
+      $.ajax({
+        url: "https://api.forismatic.com/api/1.0/?",
+        dataType: "jsonp",
+        data: "method=getQuote&format=jsonp&lang=en&jsonp=?",
+        success: function (response) {
+          $("#random_quote").html("<p id='random_quote' class='lead text-center'>" + response.quoteText + "<br/>&dash; " + response.quoteAuthor + " &dash;</p>");
+        }
+      });
+    }, 20000);
+  }
+
+}
+exports.default = motivation;
+},{}],9:[function(require,module,exports) {
 
 },{}],6:[function(require,module,exports) {
 "use strict";
@@ -86982,6 +87018,10 @@ var _sketch = require("./js/sketch");
 var _sketch2 = _interopRequireDefault(_sketch);
 
 require("./styles/main.css");
+
+var _motivation = require("./js/components/motivation");
+
+var _motivation2 = _interopRequireDefault(_motivation);
 
 var _fs = require("fs");
 
@@ -86997,9 +87037,12 @@ var jsonData = "[\r\n    {\r\n        \"id\": 1,\r\n        \"content\": \"sdlkf
 
 var objData = JSON.parse(jsonData);
 //console.log(objData);	
+window.onload = function () {
+  new _motivation2.default();
+};
 
 window.noteData = objData;
-},{"p5":13,"./js/sketch":12,"./styles/main.css":10,"fs":9}],0:[function(require,module,exports) {
+},{"p5":13,"./js/sketch":12,"./styles/main.css":10,"./js/components/motivation":26,"fs":9}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {

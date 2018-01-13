@@ -7,3 +7,44 @@
     overflow-y: scroll;
     height: 800px;
 }
+
+.flex-container {
+    align-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+#leftCarrot{
+    padding: 10px;
+}
+
+#rightCarrot{
+    padding: 10px;
+}
+
+
+#secondRow{
+    margin-left: 10px;
+    height: 150px;
+}
+
+#thirdRow{
+    margin-left: 10px;
+}
+
+.progress{
+    height: 100px;
+}
+
+.progress span {
+    position: relative;
+    display: block;
+    color: black;
+    font-size: 600%;
+    margin: auto;
+    margin-top: 50px;
+    margin-left: 50px;
+ }
+

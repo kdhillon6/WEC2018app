@@ -5,8 +5,12 @@ var Note = React.createClass({
     },
     componentWillMount() {
         this.style = {
-            right: 80
+            right: 80,
+            top: this.randomBetween(0, window.innerHeight -150, 'px')
         }
+    },
+    randomBetween(x, y, s) {
+        return (x + Math.ceil(Math.random() * (y-x))) + s
     },
     componentDidUpdate() {
         if (this.state.editing) {
@@ -79,10 +83,15 @@ var Board = React.createClass({
     },
     componentWillMount() {
         let  objData = window.noteData;
+        let notes = [];
         for (let i=0; i<objData.length; i++){
-            this.add(objData[i].content);
+            console.log(objData[i].content);
+            let obj = { id: i, note: (objData[i].content) };
+            notes.push(obj);
         }
-    },
+        console.log(notes);
+        this.setState({notes});
+;    },
     nextId() {
         this.uniqueId = this.uniqueId || 0
         return this.uniqueId++
