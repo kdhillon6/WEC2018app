@@ -42,7 +42,7 @@ const sketch = (p5) => {
 
   // Draw function
   p5.draw = () => {
-    p5.background(255);
+    p5.background("#E9E4F0");
     p5.image(clockImg,window.randomX,window.randomY+100,canvasWidth,canvasWidth);
     notesIndicator.draw();
     analogClock.draw();
