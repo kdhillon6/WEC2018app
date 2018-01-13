@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({19:[function(require,module,exports) {
+})({20:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -271,7 +271,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],20:[function(require,module,exports) {
+},{}],22:[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
@@ -2071,7 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":19,"ieee754":21,"isarray":20,"buffer":14}],15:[function(require,module,exports) {
+},{"base64-js":20,"ieee754":21,"isarray":22,"buffer":14}],15:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -73668,7 +73668,7 @@ module.exports = p5;
 
 },{"../core/core":55,"./p5.Geometry":102}]},{},[46])(46)
 });
-},{"buffer":14,"process":15}],22:[function(require,module,exports) {
+},{"buffer":14,"process":15}],23:[function(require,module,exports) {
 /*! p5.sound.js v0.3.5 2017-07-28 */
 /**
  *  p5.sound extends p5 with <a href="http://caniuse.com/audio-api"
@@ -84190,7 +84190,7 @@ src_app = function () {
 }(sndcore, master, helpers, errorHandler, panner, soundfile, amplitude, fft, signal, oscillator, env, pulse, noise, audioin, filter, delay, reverb, metro, looper, compressor, soundRecorder, peakdetect, gain, distortion);
 }));
 
-},{"../p5":13}],23:[function(require,module,exports) {
+},{"../p5":13}],24:[function(require,module,exports) {
 /*! p5.dom.js v0.3.4 Aug 11, 2017 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
@@ -86731,6 +86731,8 @@ src_app = function () {
 },{"../p5":13}],16:[function(require,module,exports) {
 module.exports="/dist/97fc8c2742031b6c19e73aa32ede8ec9.png";
 },{}],17:[function(require,module,exports) {
+module.exports="/dist/1e5aa0351cfdb208996d607dfd2f0649.png";
+},{}],18:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86765,7 +86767,7 @@ class clock {
     p5.rotate(this.secondsAngle);
     p5.strokeWeight(2);
     p5.stroke("red");
-    p5.line(0, 0, 0, 100);
+    p5.line(window.randomX, 0, window.randomX, 100 + window.randomY);
     p5.pop();
   }
   rotateMinutes() {
@@ -86776,7 +86778,7 @@ class clock {
     p5.rotate(this.minutesAngle + 180);
     p5.strokeWeight(4);
     p5.stroke("blue");
-    p5.line(0, 0, 0, 120);
+    p5.line(window.randomX, 0, window.randomX, 120 + window.randomY);
     p5.pop();
   }
   rotateHours() {
@@ -86787,13 +86789,13 @@ class clock {
     p5.translate(250, 350); // change point of origin
     p5.rotate(this.hoursAngle + this.minutesAngle);
     p5.strokeWeight(6);
-    p5.line(0, 0, 0, -150);
+    p5.line(window.randomX, 0, window.randomX, window.randomY - 150);
     p5.pop();
   }
 
 }
 exports.default = clock;
-},{}],18:[function(require,module,exports) {
+},{}],19:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86821,8 +86823,14 @@ class notesOnClock {
       this.gapY = this.gapY + 40 * p5.sin(this.deadLineAngleHour - 90);
       //draw circle
       p5.rotate(this.deadLineAngleMinute);
-      p5.fill("yellow");
-      p5.ellipse(this.gapX, this.gapY, 20);
+      if (window.noteData[i].statusColor == "yellow") {
+        p5.fill("yellow");
+      } else if (window.noteData[i].statusColor == "green") {
+        p5.fill("green");
+      } else if (window.noteData[i].statusColor == "red") {
+        p5.fill("red");
+      }
+      p5.ellipse(this.gapX + window.randomX, this.gapY + window.randomY, 20);
       this.isDeadlineReached(i);
       p5.pop();
     }
@@ -86835,24 +86843,39 @@ class notesOnClock {
   isDeadlineReached(i) {
     if (window.hours == window.noteData[i].hour) {
       //in same hour as current hour
+      if (window.noteData[i].minute == window.minutes + 1) {
+        //last minute
+        var temp = window.clockImg;
+        window.clockImg = window.clockImg2;
+        window.clockImg2 = temp;
+      }
       if (window.noteData[i].minute == window.minutes) //deadline reached
         {
           if (window.noteData[i].status == "done") {
             //completed task!!
             p5.fill("green");
-            p5.ellipse(this.gapX, this.gapY, 20);
+            window.noteData[i].statusColor = "green";
+            p5.ellipse(this.gapX + window.randomX, this.gapY + window.randomY, 20);
+            this.statusColor = "green";
           } else {
             //task not completed :( //add priority
             p5.fill("red");
+            window.noteData[i].statusColor = "red";
             this.triggerALarm();
-            p5.ellipse(this.gapX, this.gapY, 20);
+            p5.ellipse(this.gapX + window.randomX, this.gapY + window.randomY, 20);
+            var temp = window.clockImg;
+            window.clockImg = window.clockImg2;
+            window.clockImg2 = temp;
           }
-        }
+        } else {
+        window.randomX = 0;
+        window.randomY = 0;
+      }
     }
   }
   triggerALarm() {
-    randomX = 10;
-    randomY = 110;
+    randomX = p5.random(-5, 5);
+    randomY = p5.random(-5, 5);
   }
 }
 exports.default = notesOnClock;
@@ -86875,9 +86898,13 @@ var _clock = require("../assets/clock.png");
 
 var _clock2 = _interopRequireDefault(_clock);
 
-var _clock3 = require("./p5Components/clock");
+var _clock3 = require("../assets/clock2.png");
 
 var _clock4 = _interopRequireDefault(_clock3);
+
+var _clock5 = require("./p5Components/clock");
+
+var _clock6 = _interopRequireDefault(_clock5);
 
 var _notesOnClock = require("./p5Components/notesOnClock");
 
@@ -86900,8 +86927,9 @@ const sketch = p5 => {
   window.minutes;
   window.hours;
   window.clockImg;
+  //to vibrate-alarm effect
   window.randomX = 0;
-  window.randomY = 100;
+  window.randomY = 0;
   //clock object
   var analogClock;
   //notes on Clock object
@@ -86911,22 +86939,23 @@ const sketch = p5 => {
     let canvas = p5.createCanvas(canvasWidth, canvasHeight);
     canvas.parent('canvas');
     p5.angleMode(p5.DEGREES);
+    window.clockImg2 = p5.loadImage(_clock4.default);
     window.clockImg = p5.loadImage(_clock2.default);
-    analogClock = new _clock4.default(1);
+    analogClock = new _clock6.default(1);
     notesIndicator = new _notesOnClock2.default();
   };
 
   // Draw function
   p5.draw = () => {
     p5.background("white");
-    p5.image(clockImg, window.randomX, window.randomY, canvasWidth, canvasWidth);
+    p5.image(clockImg, window.randomX, window.randomY + 100, canvasWidth, canvasWidth);
     notesIndicator.draw();
     analogClock.draw();
   };
 };
 
 exports.default = sketch;
-},{"p5":13,"p5/lib/addons/p5.sound":22,"p5/lib/addons/p5.dom":23,"../assets/clock.png":16,"./p5Components/clock":17,"./p5Components/notesOnClock":18}],12:[function(require,module,exports) {
+},{"p5":13,"p5/lib/addons/p5.sound":23,"p5/lib/addons/p5.dom":24,"../assets/clock.png":16,"../assets/clock2.png":17,"./p5Components/clock":18,"./p5Components/notesOnClock":19}],12:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -86989,7 +87018,7 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":12}],8:[function(require,module,exports) {
+},{"./bundle-url":12}],9:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -87069,7 +87098,7 @@ window.onload = function () {
 };
 
 window.noteData = objData;
-},{"p5":13,"./js/sketch":10,"./styles/main.css":8,"./js/components/motivation":11,"fs":6}],0:[function(require,module,exports) {
+},{"p5":13,"./js/sketch":10,"./styles/main.css":9,"./js/components/motivation":11,"fs":6}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -87087,7 +87116,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':57693/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':59111/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 

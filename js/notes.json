@@ -5,15 +5,17 @@
         "date" : "",
         "hour":"14",
         "minute":"58",
-        "status":"done"
+        "status":"done",
+        "statusColor":"yellow"
     },
     {
         "id": 2,
         "content": "content2",
         "date" : "",
-        "hour":"15",
-        "minute":"47",
-        "status":"not done"
+        "hour":"16",
+        "minute":"57",
+        "status":"not done",
+        "statusColor":"yellow"
     },
     {
         "id": 3,
@@ -21,6 +23,7 @@
         "date" : "",
         "hour":"6",
         "minute":"0",
-        "status":"not done"
+        "status":"not done",
+        "statusColor":"yellow"
     }
 ]

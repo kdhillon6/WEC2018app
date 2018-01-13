@@ -2,6 +2,7 @@ import p5 from 'p5';
 import 'p5/lib/addons/p5.sound';
 import 'p5/lib/addons/p5.dom';
 import Img from '../assets/clock.png';
+import Img2 from '../assets/clock2.png';
 import clock from './p5Components/clock';
 import notesOnClock from './p5Components/notesOnClock';
 
@@ -20,8 +21,9 @@ const sketch = (p5) => {
   window.minutes;
   window.hours;
   window.clockImg;
+  //to vibrate-alarm effect
   window.randomX=0;
-  window.randomY=100;
+  window.randomY=0;
   //clock object
   var analogClock;
   //notes on Clock object
@@ -31,6 +33,7 @@ const sketch = (p5) => {
     let canvas = p5.createCanvas(canvasWidth, canvasHeight);
     canvas.parent('canvas');
     p5.angleMode(p5.DEGREES);
+    window.clockImg2=p5.loadImage(Img2);
     window.clockImg=p5.loadImage(Img);
     analogClock = new clock(1);
     notesIndicator= new notesOnClock();
@@ -39,7 +42,7 @@ const sketch = (p5) => {
   // Draw function
   p5.draw = () => {
     p5.background("white");
-    p5.image(clockImg,window.randomX,window.randomY,canvasWidth,canvasWidth);
+    p5.image(clockImg,window.randomX,window.randomY+100,canvasWidth,canvasWidth);
     notesIndicator.draw();
     analogClock.draw();
     

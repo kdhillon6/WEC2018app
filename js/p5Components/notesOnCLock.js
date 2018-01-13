@@ -20,8 +20,13 @@ export default class notesOnClock{
             this.gapY= this.gapY+40*p5.sin(this.deadLineAngleHour-90);
             //draw circle
             p5.rotate(this.deadLineAngleMinute);
-            p5.fill("yellow");
-            p5.ellipse(this.gapX,this.gapY,20);
+            if (window.noteData[i].statusColor=="yellow"){
+            p5.fill("yellow");}
+            else if (window.noteData[i].statusColor=="green"){
+                p5.fill("green");}
+            else if (window.noteData[i].statusColor=="red"){
+                p5.fill("red");}
+            p5.ellipse(this.gapX+window.randomX,this.gapY+window.randomY,20);
             this.isDeadlineReached(i);
             p5.pop();
         }
@@ -33,21 +38,36 @@ export default class notesOnClock{
     }
     isDeadlineReached(i){
         if(window.hours==window.noteData[i].hour){//in same hour as current hour
+            if(window.noteData[i].minute==window.minutes+1){//last minute
+                var temp=window.clockImg;
+                window.clockImg=window.clockImg2;
+                window.clockImg2=temp;
+            }
             if(window.noteData[i].minute==window.minutes) //deadline reached
             {
                 if (window.noteData[i].status=="done"){//completed task!!
                     p5.fill("green");
-                    p5.ellipse(this.gapX,this.gapY,20);
+                    window.noteData[i].statusColor="green";
+                    p5.ellipse(this.gapX+window.randomX,this.gapY+window.randomY,20);
+                    this.statusColor="green";
                 }else{//task not completed :( //add priority
                     p5.fill("red");
+                    window.noteData[i].statusColor="red";
                     this.triggerALarm();
-                    p5.ellipse(this.gapX,this.gapY,20);
+                    p5.ellipse(this.gapX+window.randomX,this.gapY+window.randomY,20);
+                    var temp=window.clockImg;
+                    window.clockImg=window.clockImg2;
+                    window.clockImg2=temp;
                 }
+            }
+            else{
+                window.randomX=0;
+                window.randomY=0;
             }
         }
     }
     triggerALarm(){
-        randomX=10;
-        randomY=110;
+        randomX=p5.random(-5,5);
+        randomY=p5.random(-5,5);
     }
 }
