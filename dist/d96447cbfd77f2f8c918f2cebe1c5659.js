@@ -123,7 +123,7 @@ var Note = React.createClass({
             )
     },
     render() {
-      return ( <ReactDraggable>
+      return ( <ReactDraggable bounds='.board' >
                {(this.state.editing) ? this.renderForm()
                                   : this.renderDisplay()}
                </ReactDraggable>
@@ -220,7 +220,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':58020/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':65066/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
