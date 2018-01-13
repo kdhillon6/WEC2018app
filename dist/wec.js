@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({20:[function(require,module,exports) {
+})({23:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -185,7 +185,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],21:[function(require,module,exports) {
+},{}],24:[function(require,module,exports) {
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -278,7 +278,7 @@ module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],14:[function(require,module,exports) {
+},{}],18:[function(require,module,exports) {
 
 var global = (1,eval)("this");
 /*!
@@ -2071,7 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":20,"ieee754":21,"isarray":22,"buffer":14}],15:[function(require,module,exports) {
+},{"base64-js":23,"ieee754":24,"isarray":22,"buffer":18}],19:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -73668,7 +73668,7 @@ module.exports = p5;
 
 },{"../core/core":55,"./p5.Geometry":102}]},{},[46])(46)
 });
-},{"buffer":14,"process":15}],23:[function(require,module,exports) {
+},{"buffer":18,"process":19}],21:[function(require,module,exports) {
 /*! p5.sound.js v0.3.5 2017-07-28 */
 /**
  *  p5.sound extends p5 with <a href="http://caniuse.com/audio-api"
@@ -84190,7 +84190,7 @@ src_app = function () {
 }(sndcore, master, helpers, errorHandler, panner, soundfile, amplitude, fft, signal, oscillator, env, pulse, noise, audioin, filter, delay, reverb, metro, looper, compressor, soundRecorder, peakdetect, gain, distortion);
 }));
 
-},{"../p5":13}],24:[function(require,module,exports) {
+},{"../p5":13}],20:[function(require,module,exports) {
 /*! p5.dom.js v0.3.4 Aug 11, 2017 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
@@ -86728,11 +86728,11 @@ src_app = function () {
 
 }));
 
-},{"../p5":13}],16:[function(require,module,exports) {
+},{"../p5":13}],14:[function(require,module,exports) {
 module.exports="/dist/97fc8c2742031b6c19e73aa32ede8ec9.png";
-},{}],17:[function(require,module,exports) {
+},{}],15:[function(require,module,exports) {
 module.exports="/dist/1e5aa0351cfdb208996d607dfd2f0649.png";
-},{}],18:[function(require,module,exports) {
+},{}],16:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86795,7 +86795,7 @@ class clock {
 
 }
 exports.default = clock;
-},{}],19:[function(require,module,exports) {
+},{}],17:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86879,7 +86879,7 @@ class notesOnClock {
   }
 }
 exports.default = notesOnClock;
-},{}],10:[function(require,module,exports) {
+},{}],9:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86955,7 +86955,7 @@ const sketch = p5 => {
 };
 
 exports.default = sketch;
-},{"p5":13,"p5/lib/addons/p5.sound":23,"p5/lib/addons/p5.dom":24,"../assets/clock.png":16,"../assets/clock2.png":17,"./p5Components/clock":18,"./p5Components/notesOnClock":19}],12:[function(require,module,exports) {
+},{"p5":13,"p5/lib/addons/p5.sound":21,"p5/lib/addons/p5.dom":20,"../assets/clock.png":14,"../assets/clock2.png":15,"./p5Components/clock":16,"./p5Components/notesOnClock":17}],12:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -86986,7 +86986,7 @@ function getBaseURL(url) {
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 
-},{}],7:[function(require,module,exports) {
+},{}],6:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -87018,13 +87018,13 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":12}],9:[function(require,module,exports) {
+},{"./bundle-url":12}],8:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":7}],11:[function(require,module,exports) {
+},{"_css_loader":6}],11:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -87060,7 +87060,7 @@ class motivation {
 
 }
 exports.default = motivation;
-},{}],6:[function(require,module,exports) {
+},{}],7:[function(require,module,exports) {
 
 },{}],2:[function(require,module,exports) {
 "use strict";
@@ -87098,7 +87098,7 @@ window.onload = function () {
 };
 
 window.noteData = objData;
-},{"p5":13,"./js/sketch":10,"./styles/main.css":9,"./js/components/motivation":11,"fs":6}],0:[function(require,module,exports) {
+},{"p5":13,"./js/sketch":9,"./styles/main.css":8,"./js/components/motivation":11,"fs":7}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -87116,7 +87116,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':59111/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':49776/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
