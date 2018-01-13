@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({20:[function(require,module,exports) {
+})({22:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -271,14 +271,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],22:[function(require,module,exports) {
+},{}],23:[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],14:[function(require,module,exports) {
+},{}],19:[function(require,module,exports) {
 
 var global = (1,eval)("this");
 /*!
@@ -2071,7 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":20,"ieee754":21,"isarray":22,"buffer":14}],15:[function(require,module,exports) {
+},{"base64-js":22,"ieee754":21,"isarray":23,"buffer":19}],20:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -2258,7 +2258,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],13:[function(require,module,exports) {
+},{}],18:[function(require,module,exports) {
 var global = (1,eval)("this");
 var Buffer = require("buffer").Buffer;
 var process = require("process");
@@ -73668,7 +73668,7 @@ module.exports = p5;
 
 },{"../core/core":55,"./p5.Geometry":102}]},{},[46])(46)
 });
-},{"buffer":14,"process":15}],23:[function(require,module,exports) {
+},{"buffer":19,"process":20}],25:[function(require,module,exports) {
 /*! p5.sound.js v0.3.5 2017-07-28 */
 /**
  *  p5.sound extends p5 with <a href="http://caniuse.com/audio-api"
@@ -84190,7 +84190,7 @@ src_app = function () {
 }(sndcore, master, helpers, errorHandler, panner, soundfile, amplitude, fft, signal, oscillator, env, pulse, noise, audioin, filter, delay, reverb, metro, looper, compressor, soundRecorder, peakdetect, gain, distortion);
 }));
 
-},{"../p5":13}],24:[function(require,module,exports) {
+},{"../p5":18}],24:[function(require,module,exports) {
 /*! p5.dom.js v0.3.4 Aug 11, 2017 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
@@ -86728,11 +86728,11 @@ src_app = function () {
 
 }));
 
-},{"../p5":13}],16:[function(require,module,exports) {
-module.exports="/dist/97fc8c2742031b6c19e73aa32ede8ec9.png";
-},{}],17:[function(require,module,exports) {
-module.exports="/dist/1e5aa0351cfdb208996d607dfd2f0649.png";
-},{}],18:[function(require,module,exports) {
+},{"../p5":18}],13:[function(require,module,exports) {
+module.exports="/dist/b8b688418fb845e6c7c6b49d85439a09.png";
+},{}],14:[function(require,module,exports) {
+module.exports="/dist/a33913650c4817000becbb8846606fbf.png";
+},{}],16:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86795,7 +86795,7 @@ class clock {
 
 }
 exports.default = clock;
-},{}],19:[function(require,module,exports) {
+},{}],17:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86837,8 +86837,8 @@ class notesOnClock {
     this.resetGap();
   }
   resetGap() {
-    this.gapX = 0;
-    this.gapY = 0;
+    this.gapX = 0 + window.randomX;
+    this.gapY = 0 + window.randomY;
   }
   isDeadlineReached(i) {
     if (window.hours == window.noteData[i].hour) {
@@ -86947,7 +86947,7 @@ const sketch = p5 => {
 
   // Draw function
   p5.draw = () => {
-    p5.background("white");
+    p5.background(255);
     p5.image(clockImg, window.randomX, window.randomY + 100, canvasWidth, canvasWidth);
     notesIndicator.draw();
     analogClock.draw();
@@ -86955,7 +86955,7 @@ const sketch = p5 => {
 };
 
 exports.default = sketch;
-},{"p5":13,"p5/lib/addons/p5.sound":23,"p5/lib/addons/p5.dom":24,"../assets/clock.png":16,"../assets/clock2.png":17,"./p5Components/clock":18,"./p5Components/notesOnClock":19}],12:[function(require,module,exports) {
+},{"p5":18,"p5/lib/addons/p5.sound":25,"p5/lib/addons/p5.dom":24,"../assets/clock.png":13,"../assets/clock2.png":14,"./p5Components/clock":16,"./p5Components/notesOnClock":17}],12:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -87018,7 +87018,7 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":12}],9:[function(require,module,exports) {
+},{"./bundle-url":12}],8:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -87088,7 +87088,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Initialize sketch
 new _p2.default(_sketch2.default);
 
-var jsonData = "[\r\n    {\r\n        \"id\": 1,\r\n        \"content\": \"sdlkfjsljfds\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"0\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"content\": \"content2\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"30\"\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"content\": \"content3\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"0\"\r\n    }\r\n]";
+var jsonData = "[\r\n    {\r\n        \"id\": 1,\r\n        \"content\": \"sdlkfjsljfds\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"14\",\r\n        \"minute\":\"58\",\r\n        \"status\":\"done\",\r\n        \"statusColor\":\"yellow\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"content\": \"content2\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"7\",\r\n        \"minute\":\"0\",\r\n        \"status\":\"not done\",\r\n        \"statusColor\":\"yellow\"\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"content\": \"content3\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"18\",\r\n        \"minute\":\"0\",\r\n        \"status\":\"not done\",\r\n        \"statusColor\":\"yellow\"\r\n    },\r\n    {\r\n        \"id\": 4,\r\n        \"content\": \"content3\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"17\",\r\n        \"minute\":\"23\",\r\n        \"status\":\"not done\",\r\n        \"statusColor\":\"yellow\"\r\n    }\r\n\r\n]";
 //console.log(jsonData);
 
 var objData = JSON.parse(jsonData);
@@ -87098,7 +87098,7 @@ window.onload = function () {
 };
 
 window.noteData = objData;
-},{"p5":13,"./js/sketch":10,"./styles/main.css":9,"./js/components/motivation":11,"fs":6}],0:[function(require,module,exports) {
+},{"p5":18,"./js/sketch":10,"./styles/main.css":8,"./js/components/motivation":11,"fs":6}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -87116,7 +87116,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':59111/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':51450/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
