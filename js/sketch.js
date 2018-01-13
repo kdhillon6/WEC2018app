@@ -37,11 +37,12 @@ const sketch = (p5) => {
     window.clockImg=p5.loadImage(Img);
     analogClock = new clock(1);
     notesIndicator= new notesOnClock();
+    
   }
 
   // Draw function
   p5.draw = () => {
-    p5.background("white");
+    p5.background(255);
     p5.image(clockImg,window.randomX,window.randomY+100,canvasWidth,canvasWidth);
     notesIndicator.draw();
     analogClock.draw();

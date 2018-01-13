@@ -33,8 +33,8 @@ export default class notesOnClock{
         this.resetGap();
     }
     resetGap(){
-        this.gapX=0;
-        this.gapY=0;
+        this.gapX=0+window.randomX;
+        this.gapY=0+window.randomY;
     }
     isDeadlineReached(i){
         if(window.hours==window.noteData[i].hour){//in same hour as current hour
