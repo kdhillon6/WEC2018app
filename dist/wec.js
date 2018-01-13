@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({17:[function(require,module,exports) {
+})({16:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -185,7 +185,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],16:[function(require,module,exports) {
+},{}],17:[function(require,module,exports) {
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -2071,7 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":17,"ieee754":16,"isarray":18,"buffer":14}],15:[function(require,module,exports) {
+},{"base64-js":16,"ieee754":17,"isarray":18,"buffer":14}],15:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -86728,10 +86728,10 @@ src_app = function () {
 
 }));
 
-},{"../p5":13}],20:[function(require,module,exports) {
-module.exports="/dist/97fc8c2742031b6c19e73aa32ede8ec9.png";
-},{}],19:[function(require,module,exports) {
-module.exports="/dist/1e5aa0351cfdb208996d607dfd2f0649.png";
+},{"../p5":13}],19:[function(require,module,exports) {
+module.exports="/dist/b8b688418fb845e6c7c6b49d85439a09.png";
+},{}],20:[function(require,module,exports) {
+module.exports="/dist/a33913650c4817000becbb8846606fbf.png";
 },{}],21:[function(require,module,exports) {
 "use strict";
 
@@ -86955,7 +86955,7 @@ const sketch = p5 => {
 };
 
 exports.default = sketch;
-},{"p5":13,"p5/lib/addons/p5.sound":23,"p5/lib/addons/p5.dom":24,"../assets/clock.png":20,"../assets/clock2.png":19,"./p5Components/clock":21,"./p5Components/notesOnClock":22}],12:[function(require,module,exports) {
+},{"p5":13,"p5/lib/addons/p5.sound":23,"p5/lib/addons/p5.dom":24,"../assets/clock.png":19,"../assets/clock2.png":20,"./p5Components/clock":21,"./p5Components/notesOnClock":22}],12:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -87018,7 +87018,7 @@ function reloadCSS() {
 
 module.exports = reloadCSS;
 
-},{"./bundle-url":12}],9:[function(require,module,exports) {
+},{"./bundle-url":12}],8:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -87098,7 +87098,7 @@ window.onload = function () {
 };
 
 window.noteData = objData;
-},{"p5":13,"./js/sketch":10,"./styles/main.css":9,"./js/components/motivation":11,"fs":6}],0:[function(require,module,exports) {
+},{"p5":13,"./js/sketch":10,"./styles/main.css":8,"./js/components/motivation":11,"fs":6}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -87116,7 +87116,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':50012/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':51621/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
