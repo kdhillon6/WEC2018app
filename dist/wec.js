@@ -87088,7 +87088,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Initialize sketch
 new _p2.default(_sketch2.default);
 
-var jsonData = "[\r\n    {\r\n        \"id\": 1,\r\n        \"content\": \"sdlkfjsljfds\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"0\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"content\": \"content2\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"30\"\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"content\": \"content3\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"0\"\r\n    }\r\n]";
+var jsonData = "[\r\n    {\r\n        \"id\": 1,\r\n        \"content\": \"sdlkfjsljfds\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"14\",\r\n        \"minute\":\"58\",\r\n        \"status\":\"done\",\r\n        \"statusColor\":\"yellow\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"content\": \"content2\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"16\",\r\n        \"minute\":\"57\",\r\n        \"status\":\"not done\",\r\n        \"statusColor\":\"yellow\"\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"content\": \"content3\",\r\n        \"date\" : \"\",\r\n        \"hour\":\"6\",\r\n        \"minute\":\"0\",\r\n        \"status\":\"not done\",\r\n        \"statusColor\":\"yellow\"\r\n    }\r\n]";
 //console.log(jsonData);
 
 var objData = JSON.parse(jsonData);

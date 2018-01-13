@@ -71,6 +71,11 @@ require = (function (modules, cache, entry) {
   return newRequire;
 })({5:[function(require,module,exports) {
 
+var styleHour = {
+    paddingLeft: "0px",
+    height: "10px",
+}
+
 var Note = React.createClass({
     getInitialState() {
         return {editing: false}
@@ -97,7 +102,7 @@ var Note = React.createClass({
         this.setState({editing: true})
     },
     save() {
-        this.props.onChange(this.refs.newText.value, this.props.id, this.ref.newTime.value)
+        this.props.onChange(this.refs.newText.value, this.props.id)
         this.setState({editing: false})
     },
     remove() {
@@ -110,10 +115,7 @@ var Note = React.createClass({
               <textarea ref="newText"
                         defaultValue={this.props.children}>
               </textarea>
-              <textarea ref="newTime" style={styleTime}
-                        defaultValue={this.props.children}>
-              </textarea>
-            
+
               <button onClick={this.save}>SAVE</button>
             </div>
         )
@@ -123,7 +125,6 @@ var Note = React.createClass({
             <div className="note"
                  style={this.style}>
                 <p>{this.props.children}</p>
-                <h4> {this.props.children} </h4>
                 <span>
                   <button onClick={this.edit}>EDIT</button>
                   <button onClick={this.remove}>X</button>
@@ -218,9 +219,7 @@ var Board = React.createClass({
 ReactDOM.render(<Board count={50}/>, 
     document.getElementById('react-container'))
 
-    var styleTime = {
-        padding: "50px",
-    }
+    
 },{}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
